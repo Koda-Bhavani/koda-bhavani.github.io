@@ -169,3 +169,148 @@ footer {
         padding: 15px;
     }
 }
+/* Advanced CSS3 & Responsive Architecture */
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #7c3aed;
+    --surface-color: #ffffff;
+    --page-color: #f1f5f9;
+    --text-color: #1e293b;
+    --radius: 14px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    background: var(--page-color);
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+header {
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    padding: 28px 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+main {
+    width: min(1100px, 92%);
+    padding: clamp(20px, 4vw, 48px) 0;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+article {
+    background: var(--surface-color);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    padding: clamp(18px, 3vw, 28px);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+input,
+textarea {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+button {
+    background: var(--primary-color);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background: var(--secondary-color);
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+@media (min-width: 700px) {
+    main {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    nav li {
+        margin: 2px 0;
+    }
+
+    main {
+        width: 92%;
+    }
+
+    article:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --surface-color: #1e293b;
+        --page-color: #0f172a;
+        --text-color: #f1f5f9;
+    }
+
+    article {
+        border-color: #334155;
+    }
+
+    input,
+    textarea {
+        background: #1e293b;
+        color: #f1f5f9;
+        border-color: #64748b;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
